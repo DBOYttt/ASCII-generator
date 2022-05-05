@@ -1,8 +1,17 @@
 x = input('type your words:')
 
 if x == 'A'.lower():
-    print('''
+    y = '''
      _  
     /_| 
    (  |
-''')
+ '''
+
+if x == 'B'.lower():
+    z = '''
+  __  
+ / _) 
+/(_)  
+'''
+
+print(y + z)
