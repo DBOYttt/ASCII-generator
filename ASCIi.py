@@ -1,17 +1,10 @@
-x = input('type your words:')
+import PIL.Image
 
-if x == 'A'.lower():
-    y = '''
-     _  
-    /_| 
-   (  |
- '''
+def main():
+    x = input('Enter the path to the image fiel : \n')
 
-if x == 'B'.lower():
-    z = '''
-  __  
- / _) 
-/(_)  
-'''
-
-print(y + z)
+    try:
+        image = PIL.Image.open(x)
+    except:
+        print(x, 'Unable to find image');
+main()
