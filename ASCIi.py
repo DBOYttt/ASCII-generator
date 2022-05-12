@@ -1,3 +1,4 @@
+from distutils.dep_util import newer_pairwise
 from importlib.resources import path
 import PIL.Image
 
@@ -19,11 +20,18 @@ def pixels_to_ascii(image):
     characters = ''.join([ASCII_CHARS[pixel//2] for pixel in pixels])
     return(characters)
 
-def main():
+def main(new_width = 100):
     path = input('Enter the path to the image fiel : \n')
 
     try:
         image = PIL.Image.open(path)
     except:
         print(path, 'Unable to find image')
+
+    new_image_data = pixels_to_ascii(grayify(resize(image)))
+
+    pixel_count = len(new_image_data)
+    ascii_image = '\n'.join(new_image_data[i:(i + new_width)] for i in range(0, pixel_count))
+
+    print(ascii_image)
 main()
