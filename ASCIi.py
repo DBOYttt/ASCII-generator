@@ -5,9 +5,12 @@ ASCII_CHARS = ["@", "#", "$", "%", "?", "*", "+", ";", ":", ",", "."]
 
 def resize(image, new_width = 100):
         width, height = image.size
-        new_height = new_width * height / width
-        return image.resize((new_width, new_height))
-resize()
+        ratio = height / width
+        new_height = int(new_width * ratio)
+        resize_image = image.resize((new_width, new_height))
+        return(resize_image)
+
+
 
 def main():
     path = input('Enter the path to the image fiel : \n')
